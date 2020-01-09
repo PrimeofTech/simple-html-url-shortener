@@ -1,5 +1,18 @@
 var endpoint = "https://www.jsonstore.io/6119ce85f3bbf044ea6bbdfe600c34add131a6de73932c1fc2bf4ce8cc38bee3";
 
+var hashh = window.location.hash.substr(1)
+
+if (window.location.hash != "") {
+    $.getJSON(endpoint + "/" + hashh, function (data) {
+        data = data["result"];
+
+        if (data != null) {
+            window.location.assign = data;
+        }
+
+    });
+}
+
 function geturl(){
     var url = document.getElementById("urlinput").value;
     var protocol_ok = url.startsWith("http://") || url.startsWith("https://") || url.startsWith("ftp://");
@@ -41,19 +54,6 @@ function shorturl(){
     var longurl = geturl();
     genhash();
     send_request(longurl);
-}
-
-var hashh = window.location.hash.substr(1)
-
-if (window.location.hash != "") {
-    $.getJSON(endpoint + "/" + hashh, function (data) {
-        data = data["result"];
-
-        if (data != null) {
-            window.location.href = data;
-        }
-
-    });
 }
 
 $(function () {
