@@ -55,3 +55,24 @@ if (window.location.hash != "") {
 
     });
 }
+
+$(function () {
+    $.getJSON(endpoint, function (data) {
+        data = data['result']
+        $('#currents').html('');
+        var table = '<table><tr><th>URL Code</th><th>URL</th></tr>';
+        jQuery.each(data, function(h, u) {
+            table += '<tr>';
+            table += `<td onclick="copy('#` + h +  `')">#` + h + `</a></td>`;
+            table += '<td>' + u + '</td>';
+            // table += '<tr><td>#' + h + '</td><td>' + u + '</td></tr>';
+            table += '</tr>';
+        });
+        table += '</table>';
+        $('#currents').append(table);
+    });
+});
+
+function copy(h) {
+    simplecopy(document.location.href + h);
+}
