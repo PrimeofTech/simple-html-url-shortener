@@ -60,7 +60,7 @@ $(function () {
     $.getJSON(endpoint, function (data) {
         data = data['result']
         $('#currents').html('');
-        var table = '<table><tr><th>URL Code</th><th>URL</th></tr>';
+        var table = '<table><thead><tr><th>URL Code</th><th>URL</th></tr></thead><tbody>';
         jQuery.each(data, function(h, u) {
             table += '<tr>';
             table += `<td onclick="copy('#` + h +  `')"><span>#` + h + `</span></a></td>`;
@@ -68,7 +68,7 @@ $(function () {
             // table += '<tr><td>#' + h + '</td><td>' + u + '</td></tr>';
             table += '</tr>';
         });
-        table += '</table>';
+        table += `</tbody></table><small>(Click the URL Code to copy the link to your clipboard!)</small>`;
         $('#currents').append(table);
     });
 });
