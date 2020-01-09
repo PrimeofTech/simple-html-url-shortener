@@ -74,5 +74,5 @@ $(function () {
 });
 
 function copy(h) {
-    simplecopy(document.location.href + '?redir' + h);
+    simplecopy('fsln.ml/' + h);
 }
