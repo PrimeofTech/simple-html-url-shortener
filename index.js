@@ -63,7 +63,7 @@ $(function () {
         var table = '<table><tr><th>URL Code</th><th>URL</th></tr>';
         jQuery.each(data, function(h, u) {
             table += '<tr>';
-            table += `<td onclick="copy('#` + h +  `')">#` + h + `</a></td>`;
+            table += `<td onclick="copy('#` + h +  `')"><span>#` + h + `</span></a></td>`;
             table += '<td>' + u + '</td>';
             // table += '<tr><td>#' + h + '</td><td>' + u + '</td></tr>';
             table += '</tr>';
